@@ -1,11 +1,11 @@
-# status-console
+# Super simple status console
 
-## Super simple status console
+# Features
 Green is good
 
 Red with an rgb Tux is bad
 
-### Local Testing
+# Podman Local Testing
 Add your endpoints to the `config.json`
 ``` json
 {
@@ -33,7 +33,7 @@ podman build -t status-console .
 podman run -d --name status-console -p 9000:3000 localhost/status-console
 ```
 
-### OpenShift Deployment spec
+# OpenShift Deployment spec
 Modify the image tag in `deployment.yaml`
 ``` yaml
 ...
@@ -52,12 +52,12 @@ spec:
   host: statuspage.apps.example.com
 ```
 
-#### All Systems are healthy
+### All Systems are healthy
 ![image](https://user-images.githubusercontent.com/52045281/234613465-5b7f307f-ac06-45a1-a01b-521b77d55895.png)
 
 
 
 
-#### Partial or Complete Outage
+### Partial or Complete Outage
 ![image](https://user-images.githubusercontent.com/52045281/234613528-4c918a04-e468-4859-8188-cda2fe11b1c1.png)
 
