@@ -15,6 +15,5 @@ spec:
       containers:
       - name: statuspage
         image: repo/status-page:<TAG>
-        imagePullPolicy: Always
         ports:
         - containerPort: 3000
