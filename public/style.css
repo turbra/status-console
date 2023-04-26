@@ -1,0 +1,113 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Main body styling */
+body {
+  background-color: #f7f7f7;
+  line-height: 1.6;
+  padding: 60px 30px 30px; /* Adjust padding-top to account for the banner */
+}
+
+/* Header styling */
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Status container */
+.status-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* Status text */
+.status-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+/* Status icon */
+.status-text i {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+/* Healthy status */
+.healthy {
+  color: #4caf50;
+}
+
+/* Unhealthy status */
+.unhealthy {
+  color: #f44336;
+}
+
+/* Unknown status */
+.unknown {
+  color: #ff9800;
+}
+
+/* Green banner styles */
+.green-banner {
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+}
+
+/* All Systems Operational */
+.all-operational {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+/* Partial or Complete Outage */
+.partial-or-complete-outage {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Banner styles */
+.banner {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.banner i {
+  margin-right: 8px;
+}
+
+.banner p {
+  margin-left: 5px; /* Add left margin to move the text to the left */
+}
+
+/* Icon Red Color */
+.icon-red {
+  color: #f44336;
+}
+

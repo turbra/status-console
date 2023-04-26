@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status Page</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+</head>
+<body>
+  <div class="banner">
+    <i id="banner-icon" class="fab fa-linux"></i>
+    <p>Status</p>
+  </div>
+  <% 
+  const allHealthy = Object.values(statusData).every(status => status === 'healthy');
+  const bannerColorClass = allHealthy ? 'all-operational' : 'partial-or-complete-outage';
+  const bannerText = allHealthy ? 'All Systems Operational' : 'Partial or Complete Outage';
+%>
+<div class="green-banner <%= bannerColorClass %>">
+  <p><%= bannerText %></p>
+</div>
+  
+  <div class="status-container">
+    <h1>Application Health Check</h1>
+    <% config.endpoints.forEach((endpoint, i) => { %>
+      <p class="status-text">
+        <i class="fas <%= statusData[`${endpoint.displayName}Status`] === 'healthy' ? 'fa-check-circle healthy' : (statusData[`${endpoint.displayName}Status`] === 'unhealthy' ? 'fa-times-circle unhealthy' : 'fa-question-circle unknown') %>"></i>
+        <%= `${endpoint.displayName} Status: ` %>
+        <% if (statusData[`${endpoint.displayName}Status`] === 'healthy') { %>
+          <a href="<%= endpoint.url %>" target="_blank" class="healthy-link">Healthy</a>
+        <% } else { %>
+          <a href="<%= endpoint.url %>" target="_blank" class="unhealthy-link">Unhealthy</a>
+        <% } %>
+      </p>
+    <% }); %>
+  </div>
+  <script>
+    // Refresh the page every 15 seconds (15000 milliseconds)
+    setTimeout(function() {
+      location.reload();
+    }, 15000);
+
+    // Change the icon color and toggle fa-beat when the banner is red
+    const bannerIcon = document.getElementById('banner-icon');
+    const bannerColorClass = '<%= bannerColorClass %>';
+
+    if (bannerColorClass === 'partial-or-complete-outage') {
+      bannerIcon.classList.add('fa-beat');
+      applyRainbowEffect();
+    } else {
+      bannerIcon.classList.remove('fa-beat');
+    }
+
+    function applyRainbowEffect() {
+      let colorCycle = [
+        'rgb(255, 0, 0)',
+        'rgb(255, 255, 0)',
+        'rgb(0, 255, 0)',
+        'rgb(0, 255, 255)',
+        'rgb(0, 0, 255)',
+        'rgb(255, 0, 255)',
+        'rgb(255, 0, 0)'
+      ];
+      let index = 0;
+
+      setInterval(function() {
+        bannerIcon.style.color = colorCycle[index];
+        index = (index + 1) % colorCycle.length;
+      }, 200);
+    }
+
+  </script>
+</body>
+</html>
+
+

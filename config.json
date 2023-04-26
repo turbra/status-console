@@ -1,0 +1,14 @@
+{
+  "endpoints": [
+    {
+      "displayName": "Application 1",
+      "url": "https://example.endpoint.com/healthz",
+      "statusField": "status"
+    },
+    {
+      "displayName": "Application 2",
+      "url": "https://example.endpoint.com/healthz",
+      "statusField": "status"
+    }
+  ]
+}
