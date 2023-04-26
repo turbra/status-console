@@ -5,6 +5,8 @@ Green is good
 
 Red with an rgb Tux is bad
 
+15s refresh interval
+
 # Podman Local Testing
 Add your endpoints to the `config.json`
 ``` json
